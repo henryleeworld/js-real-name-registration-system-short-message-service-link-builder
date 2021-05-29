@@ -16,13 +16,37 @@
             <div class="card">
                 <h5 class="card-header">簡訊實聯制連結產生器</h5>
                 <div class="card-body">
-                    <p>
-                        請輸入您欲使用的場所代碼<br />
-                        <input class="form-control" id="code" type="text" placeholder="2119 6064 4714 294" pattern="[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{3}" />
-                    </p>
-                    <p>
-                        <button class="btn btn-info" id="generate_btn" type="button">產生</button>
-                    </p>
+                    <div class="p-3 mb-2 bg-warning text-dark">如果還沒有場所代碼，請至「<a href="https://emask.taiwan.gov.tw/real/" target="_blank">簡訊實聯制場所 QR Code 登記作業</a>」系統申請。</div>
+                    <form class="row g-2 needs-validation" novalidate>
+                        <div class="col-md-6">
+                            <label for="code" class="form-label">場所代碼</label>
+                            <input class="form-control" id="code" type="text" placeholder="2119 6064 4714 294" pattern="[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{3}" required />
+                            <div class="invalid-feedback">
+                                請填寫場所代碼。
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="branch_number" class="form-label" placeholder="請輸入您的分店識別號碼（非必填）">分店識別號碼<span class="text-danger">（非必填）</span></label>
+                            <input class="form-control" id="branch_number" type="text" />
+                        </div>
+                        <div class="col-md-6">
+                            <label for="message" class="form-label">簡訊內容</label>
+                            <input class="form-control" id="message" type="text" maxlength="30" value="本次簡訊實聯限防疫目的使用。" required />
+                            <div class="invalid-feedback">
+                                請填寫簡訊內容。
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="accompanying_number" class="form-label">同行人數</label>
+                            <input class="form-control" id="accompanying_number" type="number" min="1" value="1" required />
+                            <div class="invalid-feedback">
+                                請填寫同行人數。
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-info" id="generate_btn" type="submit">產生</button>
+                        </div>
+                    </form>
                 </div>
                 <div class="card-footer d-none text-center">
                     <a href="javascript:void(0)" class="btn btn-primary d-none me-3" id="ios_link">iOS 簡短訊息服務連結</a>
@@ -34,6 +58,7 @@
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.min.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/UAParser.js/0.7.28/ua-parser.min.js" integrity="sha512-D14L3VcpQgeZZyuwbR+7rnfKzP1Aw9liJSaYGpwKYdGJB13UZY4lujfe83zgL1CyYaHtLG7VEhRDQNICsnYUtQ==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
         <script src="js/short-message-service-link-builder.js" defer></script>
     </body>
 </html>

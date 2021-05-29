@@ -11,8 +11,8 @@ $ git clone
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/9TzwwK6.png)
+![](https://i.imgur.com/ZVEPd69.png)
 > 輸入場所代碼後點選產生取得連結
 
-![](https://i.imgur.com/BpWcwT1.png)
+![](https://i.imgur.com/Cr3X8Wl.png)
 > 簡訊方式進行實聯制登記
