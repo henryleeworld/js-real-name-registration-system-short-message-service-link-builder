@@ -6,8 +6,11 @@ $(function() {
         var code = checkRequired($("#code").val(), '場所代碼');
         var message = checkRequired($("#message").val(), '簡訊內容');
         var accompanyingNumber = checkRequired($("#accompanying_number").val(), '同行人數');
-        if (code && message && accompanyingNumber) {
-            showLink(generateBody(code, message, accompanyingNumber));
+        var generateType = checkRequired($("#generate_type").val(), '產生類型');
+        if (code && message && accompanyingNumber && generateType) {
+            $('.card-footer').removeClass('d-none');
+            var HTMLLink = getHTMLLink(generateBody(code, message, accompanyingNumber));
+            (generateType == 'qr_code') ? showQRCode(HTMLLink): showLink(HTMLLink);
             return true;
         }
         $('.card-footer').addClass('d-none');
@@ -37,16 +40,38 @@ const generateBody = function(code, message, accompanyingNumber) {
     return encodeURIComponent(content);
 }
 
-const showLink = function(body) {
+const getHTMLLink = function(body) {
     var parser = new UAParser();
-    $('.card-footer').removeClass('d-none');
+    var HTMLlink;
     if (parser.getOS().name.toLowerCase() == 'ios') {
-        $('a#ios_link').prop('href', 'sms:1922&body=' + body);
+        HTMLlink = 'sms:1922&body=' + body;
         $('a#ios_link').removeClass('d-none');
         $('a#android_link').addClass('d-none');
     } else {
-        $('a#android_link').prop('href', 'sms:1922?body=' + body);
+        HTMLlink = 'sms:1922?body=' + body;
         $('a#ios_link').addClass('d-none');
         $('a#android_link').removeClass('d-none');
     }
+    return HTMLlink;
+}
+
+const showLink = function(HTMLLink) {
+    $('a#ios_link').prop('href', HTMLLink);
+    $('div#qr_code').addClass('d-none');
+}
+
+const showQRCode = function(HTMLLink) {
+    $("div#qr_code canvas").remove();
+    $('div#qr_code').qrcode({
+        render: 'canvas',
+        image: $("#cdc_icon")[0],
+        mode: 4,
+        mSize: 0.2,
+        mPosX: 0.5,
+        mPosY: 0.5,
+        text: HTMLLink
+    });
+    $('div#qr_code').removeClass('d-none');
+    $('a#ios_link').addClass('d-none');
+    $('a#android_link').addClass('d-none');
 }

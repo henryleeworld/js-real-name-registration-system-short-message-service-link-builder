@@ -11,8 +11,11 @@ $ git clone
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/ZVEPd69.png)
+![](https://i.imgur.com/NxCobzU.png)
 > 輸入場所代碼後點選產生取得連結
 
-![](https://i.imgur.com/Cr3X8Wl.png)
+![](https://i.imgur.com/sE3NEBw.jpg)
 > 簡訊方式進行實聯制登記
+
+![](https://i.imgur.com/sE3NEBw.jpg)
+> 點選 QR Code 製作列印檔案

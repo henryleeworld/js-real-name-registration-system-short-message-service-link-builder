@@ -12,7 +12,7 @@
         <title>簡訊實聯制簡短訊息服務連結產生器</title>
     </head>
     <body>
-        <div class="container-fluid col-sm-6 mt-3">
+        <div class="container-fluid col-sm-10 mt-3">
             <div class="card">
                 <h5 class="card-header">簡訊實聯制連結產生器</h5>
                 <div class="card-body">
@@ -43,6 +43,13 @@
                                 請填寫同行人數。
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <label for="generate_type" class="form-label">產生類型</label>
+                            <select class="form-control form-select" id="generate_type" aria-label=".form-select" required>
+                                <option value="link" selected>簡短訊息服務連結</option>
+                                <option value="qr_code">QR Code</option>
+                            </select>
+                        </div>
                         <div class="col-12">
                             <button class="btn btn-info" id="generate_btn" type="submit">產生</button>
                         </div>
@@ -51,6 +58,8 @@
                 <div class="card-footer d-none text-center">
                     <a href="javascript:void(0)" class="btn btn-primary d-none me-3" id="ios_link">iOS 簡短訊息服務連結</a>
                     <a href="javascript:void(0)" class="btn btn-warning d-none" id="android_link">Android 簡短訊息服務連結</a>
+                    <div class="d-none" id="qr_code"></div>
+                    <img class="d-none" src="images/centers-for-disease-control.png" id="cdc_icon">
                 </div>
             </div>
         </div>
@@ -59,6 +68,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.min.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/UAParser.js/0.7.28/ua-parser.min.js" integrity="sha512-D14L3VcpQgeZZyuwbR+7rnfKzP1Aw9liJSaYGpwKYdGJB13UZY4lujfe83zgL1CyYaHtLG7VEhRDQNICsnYUtQ==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+        <script src="js/jquery-qrcode-0.18.0.min.js" defer></script>
         <script src="js/short-message-service-link-builder.js" defer></script>
     </body>
 </html>
