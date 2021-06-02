@@ -17,5 +17,5 @@ $ git clone
 ![](https://i.imgur.com/sE3NEBw.jpg)
 > 簡訊方式進行實聯制登記
 
-![](https://i.imgur.com/sE3NEBw.jpg)
+![](https://i.imgur.com/ovrGh9Q.png)
 > 點選 QR Code 製作列印檔案
